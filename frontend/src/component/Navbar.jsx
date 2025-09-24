@@ -7,10 +7,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Contact", href: "/contact" },
+    { name: "Home", href: "#" },
+    { name: "About", href: "#" },
+    { name: "Services", href: "#" },
+    { name: "Contact", href: "#" },
   ];
 
   return (
@@ -51,7 +51,7 @@ const Navbar = () => {
           className="md:hidden text-gray-700"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
