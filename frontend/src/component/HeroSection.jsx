@@ -1,20 +1,23 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import leaderImg from "../assets/images/kumar_shivam.png";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-yellow-100 py-8 md:py-0 shadow-md">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left Content */}
         <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
           <h1 className="text-4xl md:text-5xl font-extrabold text-black leading-tight">
-            Kumar Shivam
+            {t("leaderName")}
           </h1>
           <h2 className="text-xl md:text-2xl font-semibold text-yellow-500 mt-2">
-            Youth Political Leader | District President
+            {t("leaderTitle")}
           </h2>
           <p className="mt-4 text-black text-lg max-w-xl">
-            Dedicated to serving people with integrity, transparency, and a vision for a stronger community. Leading initiatives to empower youth and bring positive change in society.
+            {t("leaderDescription")}
           </p>
 
           {/* CTA Buttons */}
@@ -23,17 +26,17 @@ const HeroSection = () => {
               href="#about"
               className="px-6 py-3 bg-yellow-500 text-black font-semibold rounded-lg shadow-md hover:bg-yellow-400 transition w-full sm:w-auto text-center"
             >
-              Know More
+              {t("knowMore")}
             </a>
             <a
               href="#contact"
               className="px-6 py-3 border-2 border-gray-700 text-gray-800 font-semibold rounded-lg hover:bg-gray-800 hover:text-white transition w-full sm:w-auto text-center"
             >
-              Connect with Me
+              {t("connect")}
             </a>
           </div>
 
-          {/* Contact Icons below buttons */}
+          {/* Social Links */}
           <div className="flex gap-6 mt-6">
             {[
               {
@@ -80,13 +83,12 @@ const HeroSection = () => {
 
         {/* Right Image */}
         <div className="flex-1 flex justify-center md:justify-end w-full max-w-full">
-  <img
-    src={leaderImg}
-    alt="Leader"
-    className="w-full max-w-sm md:max-w-lg lg:max-w-xl h-auto rounded-2xl object-cover"
-  />
-</div>
-
+          <img
+            src={leaderImg}
+            alt="Leader"
+            className="w-full max-w-sm md:max-w-lg lg:max-w-xl h-auto rounded-2xl object-cover"
+          />
+        </div>
       </div>
     </section>
   );
