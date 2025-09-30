@@ -1,12 +1,13 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import leaderImg from "../assets/images/kumar_shivam.png";
+import "i18next";
 
-const HeroSection = () => {
+const HeroSection = ({ children }) => {         // Accept children as prop
   const { t } = useTranslation();
 
   return (
-    <section className="bg-yellow-100 py-8 md:py-0 shadow-md">
+    <section className=" py-8 md:py-0 shadow-md">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-12">
         {/* Left Content */}
         <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
@@ -43,12 +44,12 @@ const HeroSection = () => {
                 href: "https://instagram.com",
                 label: "Instagram",
                 svg: (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 h-6" viewBox="0 0 24 24">
-                    <path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5zM12 7.33a4.67 4.67 0 1 1 0 9.34 4.67 4.67 0 0 1 0-9.34zm5-.97a1.08 1.08 0 1 1 0 2.16 1.08 1.08 0 0 1 0-2.16z"/>
-                    <circle cx="12" cy="12" r="3.2"/>
-                    </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 h-6" viewBox="0 0 24 24">
+                  <path d="M7.75 2A5.75 5.75 0 0 0 2 7.75v8.5A5.75 5.75 0 0 0 7.75 22h8.5A5.75 5.75 0 0 0 22 16.25v-8.5A5.75 5.75 0 0 0 16.25 2h-8.5zM12 7.33a4.67 4.67 0 1 1 0 9.34 4.67 4.67 0 0 1 0-9.34zm5-.97a1.08 1.08 0 1 1 0 2.16 1.08 1.08 0 0 1 0-2.16z"/>
+                  <circle cx="12" cy="12" r="3.2"/>
+                  </svg>
                 )
-                },
+              },
 
               { href: "https://twitter.com", label: "Twitter", svg: (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="w-6 h-6" viewBox="0 0 24 24">
@@ -90,6 +91,8 @@ const HeroSection = () => {
           />
         </div>
       </div>
+      {/* Render children (like <HelpJanta />) below hero content */}
+      {children}
     </section>
   );
 };
