@@ -1,4 +1,3 @@
-// src/i18n.js
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
@@ -6,6 +5,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 const resources = {
   en: {
     translation: {
+      // General
       home: "Home",
       about: "About",
       services: "Services",
@@ -23,10 +23,20 @@ const resources = {
 
       // Help Janta
       pastAchievements: "Jan Suraj Party - Past Achievements for the Janta",
+
+      // Voting Section
+      castVote: "Cast Your Vote",
+      supportQuestion: "Do you support the initiative of Jan Suraj Party?",
+      support: "Support",
+      notSupport: "Not Support",
+      youChose: "You chose",
+      supportLevel: "Support Level",
+      notSupportLevel: "Not Support",
     },
   },
   hi: {
     translation: {
+      // General
       home: "होम",
       about: "हमारे बारे में",
       services: "सेवाएँ",
@@ -44,12 +54,21 @@ const resources = {
 
       // Help Janta
       pastAchievements: "जन सूरज पार्टी - जनता के लिए पिछली उपलब्धियाँ",
+
+      // Voting Section
+      castVote: "अपना वोट डालें",
+      supportQuestion: "क्या आप जन सूरज पार्टी की पहल का समर्थन करते हैं?",
+      support: "समर्थन",
+      notSupport: "समर्थन नहीं",
+      youChose: "आपने चुना",
+      supportLevel: "समर्थन स्तर",
+      notSupportLevel: "समर्थन नहीं",
     },
   },
 };
 
 i18n
-  .use(LanguageDetector) // detect language automatically
+  .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,

@@ -13,44 +13,8 @@ import {
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownIcon from "@mui/icons-material/ThumbDown";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import i18n from "i18next";
-import { useTranslation, initReactI18next } from "react-i18next";
-
-// ----- i18n setup -----
-const resources = {
-  en: {
-    translation: {
-      castVote: "Cast Your Vote",
-      supportQuestion: "Do you support the initiative of Jan Suraj Party?",
-      support: "Support",
-      notSupport: "Not Support",
-      youChose: "You chose",
-      supportLevel: "Support Level",
-      notSupportLevel: "Not Support",
-    },
-  },
-  hi: {
-    translation: {
-      Cast_Vote_Your_Vote: "अपना वोट डालें",
-      supportQuestion: "क्या आप जन सूरज पार्टी की पहल का समर्थन करते हैं?",
-      support: "समर्थन",
-      notSupport: "समर्थन नहीं",
-      youChose: "आपने चुना",
-      supportLevel: "समर्थन स्तर",
-      notSupportLevel: "समर्थन नहीं",
-    },
-  },
-};
-
-i18n.use(initReactI18next).init({
-  resources,
-  lng: "en",
-  fallbackLng: "en",
-  interpolation: { escapeValue: false },
-});
-
-
-
+import { useTranslation } from "react-i18next";
+import i18n from "../i18n"; // Import your main i18n config
 
 const VotePage = () => {
   const { t } = useTranslation();
@@ -58,9 +22,11 @@ const VotePage = () => {
   const [supportCount, setSupportCount] = useState(60);
   const [notSupportCount, setNotSupportCount] = useState(40);
   const [language, setLanguage] = useState("en");
-useEffect(() => {
-  i18n.changeLanguage(language);
-}, []);
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
+
   const handleVote = (choice) => {
     if (!vote) {
       setVote(choice);
@@ -75,16 +41,12 @@ useEffect(() => {
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
-    i18n.changeLanguage(lang);
   };
-useEffect(() => {
-  i18n.changeLanguage(language);
-}, []);
+
   return (
     <Box
       sx={{
         minHeight: "100vh",
-        
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -95,17 +57,12 @@ useEffect(() => {
         <CardContent sx={{ textAlign: "center" }}>
          
 
-          {/* Title */}
           <Typography variant="h4" component="h1" gutterBottom>
             {t("castVote")}
           </Typography>
-
-          {/* Question */}
           <Typography variant="body1" color="textSecondary" gutterBottom>
             {t("supportQuestion")}
           </Typography>
-
-          {/* Always visible support line */}
           <Box sx={{ mt: 2 }}>
             <Typography variant="body2" gutterBottom>
               {t("supportLevel")}: {supportPercentage}% | {t("notSupportLevel")}: {notSupportPercentage}%
@@ -124,8 +81,6 @@ useEffect(() => {
             />
           </Box>
         </CardContent>
-
-        {/* Voting buttons */}
         <CardActions sx={{ justifyContent: "center", gap: 2, mt: 2 }}>
           <Button
             variant={vote === "support" ? "contained" : "outlined"}
@@ -144,8 +99,6 @@ useEffect(() => {
             {t("notSupport")}
           </Button>
         </CardActions>
-
-        {/* Vote feedback */}
         {vote && (
           <CardContent sx={{ textAlign: "center", mt: 3 }}>
             <CheckCircleIcon
