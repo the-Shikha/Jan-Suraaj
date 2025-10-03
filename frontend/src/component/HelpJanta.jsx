@@ -2,8 +2,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import { motion } from "framer-motion";
 
-// Translation strings (only plain text goes here)
+// 🌍 Translations
 i18n.use(initReactI18next).init({
   resources: {
     en: {
@@ -21,7 +22,7 @@ i18n.use(initReactI18next).init({
   interpolation: { escapeValue: false },
 });
 
-// DATA: Separate from translation files for best practice and reliability
+// 📊 Data
 const achievementsData = {
   en: [
     {
@@ -37,26 +38,6 @@ const achievementsData = {
     {
       description:
         "Infrastructure development projects included construction of durable roads, clean drinking water systems, and electrification of villages. By enhancing accessibility and providing essential utilities, these projects transformed living conditions and supported economic growth in underserved areas.",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjkkYCkmzhv2EiuWAx-yWTRn0H0qrFkZTJZEjbeO2Zz3mThqFZTwz-mKX00FDPR7Usv_4&usqp=CAU",
-    },
-    {
-      description:
-        "The party launched social welfare programs targeting women, children, and the elderly. Initiatives included vocational training, financial assistance schemes, and healthcare programs, empowering women and providing better social security, healthcare, and quality of life for all vulnerable groups.",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjkkYCkmzhv2EiuWAx-yWTRn0H0qrFkZTJZEjbeO2Zz3mThqFZTwz-mKX00FDPR7Usv_4&usqp=CAU",
-    },
-    {
-      description:
-        "Environmental campaigns led by the party focused on afforestation, river clean-up drives, and sustainable farming practices. Thousands of trees were planted, and local communities were educated on eco-friendly practices, contributing to a greener, healthier, and more sustainable environment for future generations.",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJqtCZtybLnfZykAVqWSBjnZO0Ob342P1kHA&s",
-    },
-    {
-      description:
-        "Cultural and community events were organized to promote local arts, heritage, and traditions. These festivals and gatherings encouraged community participation, strengthened social bonds, and provided a platform for local artists to showcase their talents.",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjWmje7uSzEM3jsV946Jy70aeeeTeT8XN10A&s",
-    },
-    {
-      description:
-        "To bridge the digital divide, the party implemented initiatives providing computer literacy training, internet access points in villages, and support for students to use technology in education. This modern approach opened up new opportunities for learning and growth.",
       url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjkkYCkmzhv2EiuWAx-yWTRn0H0qrFkZTJZEjbeO2Zz3mThqFZTwz-mKX00FDPR7Usv_4&usqp=CAU",
     },
   ],
@@ -76,62 +57,73 @@ const achievementsData = {
         "इन्फ्रास्ट्रक्चर विकास परियोजनाओं में मजबूत सड़कें, स्वच्छ पेयजल प्रणाली और गांवों का विद्युतीकरण शामिल था। इन परियोजनाओं ने जीवन स्तर में सुधार किया और ग्रामीण क्षेत्रों में आर्थिक विकास को बढ़ावा दिया।",
       url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjkkYCkmzhv2EiuWAx-yWTRn0H0qrFkZTJZEjbeO2Zz3mThqFZTwz-mKX00FDPR7Usv_4&usqp=CAU",
     },
-    {
-      description:
-        "पार्टी ने महिलाओं, बच्चों और बुजुर्गों के लिए सामाजिक कल्याण कार्यक्रम शुरू किए। पहल में व्यावसायिक प्रशिक्षण, वित्तीय सहायता योजनाएँ और स्वास्थ्य कार्यक्रम शामिल थे, जिससे महिलाओं को सशक्त बनाया गया और कमजोर वर्गों के लिए जीवन की गुणवत्ता में सुधार हुआ।",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjkkYCkmzhv2EiuWAx-yWTRn0H0qrFkZTJZEjbeO2Zz3mThqFZTwz-mKX00FDPR7Usv_4&usqp=CAU",
-    },
-    {
-      description:
-        "पार्टी के पर्यावरण अभियान में वनीकरण, नदी की सफाई और सतत कृषि प्रथाओं पर ध्यान केंद्रित किया गया। हजारों पेड़ लगाए गए और स्थानीय समुदायों को पर्यावरण-मैत्रीपूर्ण अभ्यासों के बारे में शिक्षित किया गया, जिससे भविष्य की पीढ़ियों के लिए हरा-भरा और स्वस्थ वातावरण बना।",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJqtCZtybLnfZykAVqWSBjnZO0Ob342P1kHA&s",
-    },
-    {
-      description:
-        "सांस्कृतिक और सामुदायिक कार्यक्रम आयोजित किए गए ताकि स्थानीय कला, विरासत और परंपराओं को बढ़ावा दिया जा सके। इन त्योहारों और आयोजनों ने समुदाय की भागीदारी को प्रोत्साहित किया, सामाजिक संबंध मजबूत किए और स्थानीय कलाकारों को अपनी प्रतिभा दिखाने का मंच प्रदान किया।",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjWmje7uSzEM3jsV946Jy70aeeeTeT8XN10A&s",
-    },
-    {
-      description:
-        "डिजिटल डिवाइड को कम करने के लिए पार्टी ने कंप्यूटर साक्षरता प्रशिक्षण, गांवों में इंटरनेट एक्सेस पॉइंट और छात्रों को शिक्षा में तकनीक के उपयोग का समर्थन करने के लिए पहल की। इस आधुनिक दृष्टिकोण ने सीखने और विकास के नए अवसर खोले।",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjkkYCkmzhv2EiuWAx-yWTRn0H0qrFkZTJZEjbeO2Zz3mThqFZTwz-mKX00FDPR7Usv_4&usqp=CAU",
-    },
   ],
 };
 
-const HelpJanta = ({children}) => {
+const HelpJanta = ({ children }) => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language || "en";
   const achievements = achievementsData[lang] || achievementsData["en"];
 
   return (
     <div className="min-h-screen p-6">
-      {/* Language Switch Buttons */}
-      
-      <h1 className="text-4xl font-extrabold text-center text-blue-700 mb-16">
+      {/* Title */}
+      <motion.h1
+        className="text-4xl font-extrabold text-center text-blue-700 mb-16"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
         {t("pastAchievements")}
-      </h1>
+      </motion.h1>
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-16">
-        {achievements.map(({ url, description }, index) => (
-          <div
-            key={index}
-            className={`flex flex-col md:flex-row items-center gap-8 ${
-              index % 2 === 1 ? "md:flex-row-reverse" : ""
-            }`}
-          >
-            <img
-              src={url}
-              alt={`Achievement ${index + 1}`}
-              className="w-full md:w-1/2 h-80 object-cover rounded-2xl shadow-lg"
-            />
-            <div className="md:w-1/2 bg-white p-8 rounded-2xl shadow-xl">
-              <p className="text-gray-700 text-lg leading-relaxed">{description}</p>
+      {/* Achievements + Children */}
+      <div className="max-w-6xl mx-auto flex flex-col gap-12">
+        {achievements.map(({ url, description }, index) => {
+          const isEven = index % 2 === 0;
+
+          return (
+            <div
+              key={index}
+              className={`flex flex-col md:flex-row items-center gap-8 ${
+                !isEven ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              {/* Image */}
+              <motion.img
+                src={url}
+                alt={`Achievement ${index + 1}`}
+                className="w-full md:w-1/2 h-80 object-cover rounded-2xl shadow-xl"
+                initial={{ opacity: 0, scale: 0.85 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              />
+
+              {/* Text */}
+              <motion.div
+                className="md:w-1/2 bg-white p-8 rounded-2xl shadow-lg"
+                initial={{ opacity: 0, x: isEven ? 120 : -120 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+              >
+                <p className="text-gray-700 text-lg leading-relaxed">
+                  {description}
+                </p>
+              </motion.div>
+              
             </div>
+          );
+        })}
+{/* Children placed neatly */}
+        {children && (
+          <div className="mt-0.5">
+            {children}
           </div>
-        ))}
+        )}
+        
       </div>
-      {children}
     </div>
   );
 };
